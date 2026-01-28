@@ -1,66 +1,37 @@
+import { client } from "@/sanity/lib/client";
+import { groq } from "next-sanity";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { PortableText } from "@portabletext/react";
+import { urlFor } from "@/sanity/lib/image";
 
-export default function Home() {
+export default async function Home() {
+  const data = await client.fetch(groq`*[_type == "home"][0]{
+    title,
+    heroImage,
+    content
+  }`);
+
+  if (!data) return <div className="p-8">No home page data found. Please publish the Home document in Sanity Studio.</div>;
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="p-8 max-w-4xl mx-auto font-sans">
+      <h1 className="text-4xl font-bold mb-8">{data.title}</h1>
+      {data.heroImage && (
+        <div className="mb-8">
+          <Image
+            src={urlFor(data.heroImage).width(800).url()}
+            alt={data.title || "Hero Image"}
+            width={800}
+            height={400}
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      )}
+      {data.content && (
+        <div className="prose dark:prose-invert lg:prose-xl">
+          <PortableText value={data.content} />
         </div>
-      </main>
-    </div>
+      )}
+    </main>
   );
 }
