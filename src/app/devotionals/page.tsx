@@ -26,9 +26,6 @@ export default async function DevotionalsPage() {
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
                         Devotional Gatherings
                     </h1>
-                    <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-                        Join us for prayers, music, and spiritual fellowship in communities across County Sligo.
-                    </p>
                 </header>
 
                 {devotionals.length === 0 ? (
