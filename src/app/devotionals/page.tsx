@@ -57,7 +57,7 @@ export default async function DevotionalsPage() {
                                 )}
 
                                 {/* Content - Much more space */}
-                                <div className="flex flex-1 flex-col justify-center py-4 pr-4 pl-2 md:pl-0">
+                                <div className="flex flex-1 flex-col justify-center items-center text-center py-4 pr-4 pl-2 md:pl-0">
 
 
                                     <h2 className="mb-4 text-3xl font-extrabold leading-tight text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
@@ -65,14 +65,14 @@ export default async function DevotionalsPage() {
                                     </h2>
 
                                     {event.location && (
-                                        <div className="mb-4 flex items-center text-zinc-500 dark:text-zinc-400">
+                                        <div className="mb-4 flex items-center justify-center text-zinc-500 dark:text-zinc-400">
                                             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                             <span className="text-lg">{event.location}</span>
                                         </div>
                                     )}
 
                                     {event.description && (
-                                        <div className="prose prose-lg text-zinc-600 dark:text-zinc-400 dark:prose-invert">
+                                        <div className="prose prose-lg text-left text-zinc-600 dark:text-zinc-400 dark:prose-invert">
                                             <PortableText value={event.description} />
                                         </div>
                                     )}
