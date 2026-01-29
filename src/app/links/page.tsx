@@ -36,7 +36,7 @@ export default async function LinksPage() {
                                     </svg>
                                 </div>
                                 {link.description && (
-                                    <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
+                                    <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed">
                                         {link.description}
                                     </p>
                                 )}
