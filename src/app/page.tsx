@@ -4,6 +4,8 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 
+export const revalidate = 60; // revalidate every minute
+
 export default async function Home() {
   const data = await client.fetch(groq`*[_type == "home"][0]`);
 
