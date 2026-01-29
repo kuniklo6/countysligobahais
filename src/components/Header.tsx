@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -36,10 +37,18 @@ export default function Header() {
                 <div className="flex flex-1 items-center justify-start">
                     <Link
                         href="/"
-                        className="text-xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="flex items-center gap-3 text-xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                     >
-                        County Sligo Bahá’ís
+                        <Image
+                            src="/bahai-symbols_1.png"
+                            alt="Bahá'í Star"
+                            width={48}
+                            height={48}
+                            className="w-10 h-10 md:w-12 md:h-12"
+                            priority
+                        />
+                        <span>County Sligo Bahá’ís</span>
                     </Link>
                 </div>
 
@@ -60,8 +69,8 @@ export default function Header() {
                                 <Link
                                     href={item.href}
                                     className={`text-lg font-medium transition-colors py-4 flex items-center gap-1 ${active
-                                            ? 'text-blue-600 dark:text-blue-400'
-                                            : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400'
+                                        ? 'text-blue-600 dark:text-blue-400'
+                                        : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400'
                                         }`}
                                     onClick={(e) => {
                                         if (item.children) e.preventDefault();
@@ -89,8 +98,8 @@ export default function Header() {
                                                     key={child.name}
                                                     href={child.href}
                                                     className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${isActive(child.href)
-                                                            ? 'text-blue-600 dark:text-blue-400 bg-zinc-50 dark:bg-zinc-800'
-                                                            : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-blue-600 dark:hover:text-blue-400'
+                                                        ? 'text-blue-600 dark:text-blue-400 bg-zinc-50 dark:bg-zinc-800'
+                                                        : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-blue-600 dark:hover:text-blue-400'
                                                         }`}
                                                 >
                                                     {child.name}
@@ -150,8 +159,8 @@ export default function Header() {
                                             <button
                                                 onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
                                                 className={`flex w-full items-center justify-between rounded-lg py-3 text-base font-semibold leading-7 hover:bg-zinc-50 dark:hover:bg-zinc-800 ${active
-                                                        ? 'text-blue-600 dark:text-blue-400'
-                                                        : 'text-zinc-900 dark:text-white'
+                                                    ? 'text-blue-600 dark:text-blue-400'
+                                                    : 'text-zinc-900 dark:text-white'
                                                     }`}
                                             >
                                                 {item.name}
@@ -171,8 +180,8 @@ export default function Header() {
                                                             key={child.name}
                                                             href={child.href}
                                                             className={`block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-zinc-50 dark:hover:bg-zinc-800 ${isActive(child.href)
-                                                                    ? 'text-blue-600 dark:text-blue-400 bg-zinc-50 dark:bg-zinc-800'
-                                                                    : 'text-zinc-900 dark:text-zinc-100'
+                                                                ? 'text-blue-600 dark:text-blue-400 bg-zinc-50 dark:bg-zinc-800'
+                                                                : 'text-zinc-900 dark:text-zinc-100'
                                                                 }`}
                                                             onClick={() => setMobileMenuOpen(false)}
                                                         >
@@ -186,8 +195,8 @@ export default function Header() {
                                         <Link
                                             href={item.href}
                                             className={`-mx-3 block rounded-lg px-3 py-3 text-base font-semibold leading-7 hover:bg-zinc-50 dark:hover:bg-zinc-800 ${active
-                                                    ? 'text-blue-600 dark:text-blue-400 bg-zinc-50 dark:bg-zinc-800'
-                                                    : 'text-zinc-900 dark:text-white'
+                                                ? 'text-blue-600 dark:text-blue-400 bg-zinc-50 dark:bg-zinc-800'
+                                                : 'text-zinc-900 dark:text-white'
                                                 }`}
                                             onClick={() => setMobileMenuOpen(false)}
                                         >
