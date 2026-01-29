@@ -4,7 +4,11 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendEmail(formData: FormData) {
+// Define the return type for the action
+export type EmailResult = { error: string; success?: never } | { success: true; error?: never };
+
+// Update function signature to accept prevState (React 19 / Next.js requirement for useActionState)
+export async function sendEmail(prevState: EmailResult | null, formData: FormData): Promise<EmailResult> {
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
