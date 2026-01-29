@@ -18,7 +18,7 @@ export default async function BlogPage() {
     return (
         <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans">
             <div className="max-w-6xl mx-auto py-16 px-6 sm:px-8 lg:px-12">
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-12 text-center md:text-left">Latest News</h1>
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-12 text-center md:text-left">Latest Posts</h1>
 
                 {posts.length > 0 ? (
                     <div className="grid grid-cols-1 gap-12">
