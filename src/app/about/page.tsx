@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const revalidate = 60; // revalidate every minute
 
@@ -66,9 +67,9 @@ export default async function AboutPage() {
                             </section>
 
                             <div className="pt-8 flex justify-center md:justify-start">
-                                <a href="/contact" className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-8 py-3 text-base font-medium text-white shadow-lg transition-all hover:bg-zinc-700 hover:scale-105 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200">
+                                <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-8 py-3 text-base font-medium text-white shadow-lg transition-all hover:bg-zinc-700 hover:scale-105 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200">
                                     Get in Touch
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     )}
