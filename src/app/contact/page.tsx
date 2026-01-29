@@ -46,13 +46,13 @@ export default function ContactPage() {
                             className="space-y-6"
                         >
                             {state?.error && (
-                                <div className="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-base font-medium text-center">
+                                <div className="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xl font-medium text-center">
                                     {state.error}
                                 </div>
                             )}
 
                             {state?.success && (
-                                <div className="p-4 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-base font-medium text-center">
+                                <div className="p-4 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-xl font-medium text-center">
                                     Message sent successfully! We'll get back to you soon.
                                 </div>
                             )}
