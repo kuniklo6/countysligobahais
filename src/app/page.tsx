@@ -19,36 +19,39 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans selection:bg-blue-100 dark:selection:bg-blue-900">
-      <article className="max-w-5xl mx-auto py-16 px-6 sm:px-8 lg:px-12">
-        <header className="mb-16 text-center space-y-8">
-          <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            {data.title}
-          </h1>
+      <div className="max-w-5xl mx-auto py-16 px-6 sm:px-8 lg:px-12">
+        <div className="flex flex-col gap-12">
+          <article className="group relative flex flex-col md:flex-row overflow-hidden rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all p-2 gap-6 md:gap-8">
 
-          {data.heroImage && (
-            <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl shadow-xl ring-1 ring-zinc-900/5 dark:ring-white/10">
-              <Image
-                src={urlFor(data.heroImage).width(1200).height(675).url()}
-                alt={data.title || "Hero Image"}
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                priority
-              />
+            {/* Image - Left Side */}
+            {data.heroImage && (
+              <div className="relative w-full md:w-2/5 min-h-[300px] md:min-h-auto aspect-[16/10] md:aspect-auto overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800 shrink-0">
+                <Image
+                  src={urlFor(data.heroImage).width(800).height(800).url()}
+                  alt={data.title || "Hero Image"}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+              </div>
+            )}
+
+            {/* Content - Right Side */}
+            <div className="flex flex-1 flex-col justify-center items-center text-center py-4 pr-4 pl-2 md:pl-0">
+              <h1 className="mb-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {data.title}
+              </h1>
+
+              {data.content && (
+                <div className="prose prose-lg text-left text-zinc-600 dark:text-zinc-400 dark:prose-invert">
+                  <PortableText value={data.content} />
+                </div>
+              )}
             </div>
-          )}
-        </header>
 
-        {data.content && (
-          <div className="prose prose-lg md:prose-xl max-w-none prose-zinc dark:prose-invert mx-auto
-            prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-zinc-900 dark:prose-headings:text-white
-            prose-p:leading-relaxed prose-p:text-zinc-600 dark:prose-p:text-zinc-300
-            prose-strong:font-bold prose-strong:text-zinc-900 dark:prose-strong:text-white
-            prose-a:text-blue-600 dark:prose-a:text-blue-400 hover:prose-a:underline
-            prose-img:rounded-xl prose-img:shadow-lg">
-            <PortableText value={data.content} />
-          </div>
-        )}
-      </article>
+          </article>
+        </div>
+      </div>
     </main>
   );
 }

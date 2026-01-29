@@ -60,9 +60,7 @@ export default async function DevotionalsPage() {
                                 <div className="flex flex-1 flex-col justify-center items-center text-center py-4 pr-4 pl-2 md:pl-0">
 
 
-                                    <h2 className="mb-4 text-3xl font-extrabold leading-tight text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                        {event.title}
-                                    </h2>
+
 
                                     {event.location && (
                                         <div className="mb-4 flex items-center justify-center text-zinc-500 dark:text-zinc-400">
