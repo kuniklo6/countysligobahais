@@ -10,9 +10,9 @@ const navigation = [
 export default function Header() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md">
-            <div className="mx-auto flex h-32 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
-                {/* Logo */}
-                <div className="flex shrink-0 items-center">
+            <div className="mx-auto flex h-32 max-w-7xl items-center px-6 sm:px-8 lg:px-12">
+                {/* Logo - Left Section */}
+                <div className="flex flex-1 items-center justify-start">
                     <Link
                         href="/"
                         className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -21,8 +21,8 @@ export default function Header() {
                     </Link>
                 </div>
 
-                {/* Centered Navigation */}
-                <nav className="hidden md:flex items-center gap-10">
+                {/* Navigation - Center Section */}
+                <nav className="hidden md:flex items-center justify-center gap-10">
                     {navigation.map((item) => (
                         <Link
                             key={item.name}
@@ -34,8 +34,8 @@ export default function Header() {
                     ))}
                 </nav>
 
-                {/* Right Side - Contact Button */}
-                <div className="flex shrink-0 items-center justify-end">
+                {/* Contact Button - Right Section */}
+                <div className="flex flex-1 items-center justify-end">
                     <Link
                         href="/contact"
                         className="rounded-full bg-zinc-900 px-7 py-3 text-base font-medium text-white transition-all hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
