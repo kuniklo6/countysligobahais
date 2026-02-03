@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "createdAt": "2026-02-03T16:04:49.060Z",
+  "workspaces": [
+    {
+      "name": "default",
+      "title": "Default",
+      "basePath": "/studio",
+      "projectId": "pffyawrp",
+      "dataset": "production",
+      "icon": null,
+      "mediaLibrary": {
+        "enabled": false
+      },
+      "schema": "2751e7f1.create-schema.json",
+      "tools": "d8640c31.create-tools.json"
+    }
+  ],
+  "studioVersion": "5.7.0"
+}
