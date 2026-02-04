@@ -13,6 +13,7 @@ export default defineStackbitConfig({
             token: process.env.SANITY_ACCESS_TOKEN!,
             dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
             studioUrl: "https://county-sligo-bahais.netlify.app/studio",
+            studioInstallCommand: "npm install && cp node_modules/sanity/lib/_internal/cli/threads/getGraphQLAPIs.cjs node_modules/sanity/lib/_internal/cli/threads/getGraphQLAPIs.js || true",
         }),
     ],
     modelExtensions: [
