@@ -12,7 +12,7 @@ export default defineStackbitConfig({
             projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
             token: process.env.SANITY_ACCESS_TOKEN!,
             dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-            studioUrl: "https://county-sligo-bahais.netlify.app/studio",
+            studioUrl: "https://county-sligo-bahais.sanity.studio/",
             studioInstallCommand: "npm install && node fix-sanity.js",
         }),
     ],
