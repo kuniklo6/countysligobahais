@@ -9,15 +9,22 @@ try {
     console.log(`Checking for Sanity fix in: ${targetDir}`);
 
     if (fs.existsSync(cjsFile)) {
-        if (!fs.existsSync(jsFile)) {
-            fs.copyFileSync(cjsFile, jsFile);
-            console.log('SUCCESS: Copied getGraphQLAPIs.cjs to getGraphQLAPIs.js');
-        } else {
-            console.log('INFO: getGraphQLAPIs.js already exists');
-        }
+        console.log('Found getGraphQLAPIs.cjs, creating ESM wrapper...');
+
+        // Create a wrapper that imports the CJS file
+        // This allows Node to handle the .js file as ESM (due to package.json type: module)
+        // but correctly load and validly execute the CJS logic.
+        const wrapperContent = `
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+require('./getGraphQLAPIs.cjs');
+`;
+
+        fs.writeFileSync(jsFile, wrapperContent.trim());
+        console.log('SUCCESS: Created getGraphQLAPIs.js wrapper');
+
     } else {
         console.error('ERROR: Source getGraphQLAPIs.cjs missing. Sanity version might be different than expected.');
-        // Check if directory exists
         if (fs.existsSync(targetDir)) {
             console.log('Directory contents:', fs.readdirSync(targetDir));
         } else {
@@ -26,4 +33,5 @@ try {
     }
 } catch (error) {
     console.error('ERROR in fix-sanity script:', error);
+    process.exit(1);
 }
