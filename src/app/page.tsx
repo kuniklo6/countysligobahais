@@ -1,13 +1,16 @@
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/fetch";
 import { groq } from "next-sanity";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
+import { SanityDocument } from "next-sanity";
 
 export const revalidate = 60; // revalidate every minute
 
 export default async function Home() {
-  const data = await client.fetch(groq`*[_type == "home"][0]`);
+  const data = await sanityFetch<SanityDocument>({
+    query: groq`*[_type == "home"][0]`
+  });
 
 
 

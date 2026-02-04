@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "createdAt": "2026-02-03T20:43:14.552Z",
+  "workspaces": [
+    {
+      "name": "default",
+      "title": "County Sligo Bahais",
+      "basePath": "/",
+      "projectId": "pffyawrp",
+      "dataset": "production",
+      "icon": null,
+      "mediaLibrary": {
+        "enabled": false
+      },
+      "schema": "2751e7f1.create-schema.json",
+      "tools": "d8640c31.create-tools.json"
+    }
+  ],
+  "studioVersion": "5.7.0"
+}

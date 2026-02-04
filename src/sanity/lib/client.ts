@@ -8,7 +8,6 @@ export const client = createClient({
     apiVersion,
     useCdn,
     stega: {
-        enabled: false,
-        studioUrl: '/studio',
+        studioUrl: process.env.NEXT_PUBLIC_SANITY_STUDIO_URL || 'http://localhost:3333',
     },
 })

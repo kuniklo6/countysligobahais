@@ -15,17 +15,24 @@ export const metadata: Metadata = {
 
 
 
-export default function RootLayout({
+import { VisualEditing } from "next-sanity/visual-editing";
+import { draftMode } from "next/headers";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isDraftMode = (await draftMode()).isEnabled
+
   return (
     <html lang="en">
       <body className={outfit.variable}>
         <Header />
         {children}
+        {isDraftMode && <VisualEditing />}
       </body>
+
     </html>
   );
 }
