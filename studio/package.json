@@ -10,7 +10,7 @@
         "build": "sanity build",
         "deploy": "sanity deploy",
         "deploy-graphql": "sanity graphql deploy",
-        "postinstall": "cp node_modules/sanity/lib/_internal/cli/threads/getGraphQLAPIs.cjs node_modules/sanity/lib/_internal/cli/threads/getGraphQLAPIs.js || true"
+        "postinstall": "node fix-sanity.js"
     },
     "dependencies": {
         "@sanity/presentation": "^2.0.0",
